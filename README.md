@@ -1,4 +1,4 @@
-# Twitter Bootstrap for Rails 3.1 Asset Pipeline
+# Twitter Bootstrap v3 for Rails 3.1 Asset Pipeline
 Bootstrap is a toolkit from Twitter designed to kickstart development of webapps and sites. It includes base CSS and HTML for typography, forms, buttons, tables, grids, navigation, and more.
 
 twitter-bootstrap-rails project integrates Bootstrap CSS toolkit for Rails 3.1 Asset Pipeline (Rails 3.2 supported)
@@ -51,14 +51,9 @@ Include these lines in the Gemfile to install the gems from [RubyGems.org](http:
 ```ruby
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem "twitter-bootstrap-rails"
+gem "twitter-bootstrap-rails", :git => 'https://github.com/lululau/twitter-bootstrap-rails', :branch => 'bootstrap3'
 ```
 
-or you can install from latest build;
-
-```ruby
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-```
 
 Then run `bundle install` from the command line:
 
@@ -169,51 +164,6 @@ Invalid CSS after "*": expected "{", was "= require twitt..."
 ```
 
 If this is the case, you **must** use @import instead of `*=` in your manifest file, or don't compile your manifest with SASS.
-
-### Icons
-
-By default, this gem overrides standard Bootstraps's Glyphicons with Font Awesome (http://fortawesome.github.com/Font-Awesome/).
-
-This should appear inside _bootstrap_and_overrides *(based on you twitter-bootstrap-rails version)*
-
-**From 2.2.7**
-
-```css
-// Font Awesome
-@fontAwesomeEotPath: asset-url("fontawesome-webfont.eot");
-@fontAwesomeEotPath_iefix: asset-url("fontawesome-webfont.eot?#iefix");
-@fontAwesomeWoffPath: asset-url("fontawesome-webfont.woff");
-@fontAwesomeTtfPath: asset-url("fontawesome-webfont.ttf");
-@fontAwesomeSvgPath: asset-url("fontawesome-webfont.svg#fontawesomeregular");
-@import "fontawesome/font-awesome";
-```
-
-**Before 2.2.7**
-
-```css
-// Font Awesome
-@fontAwesomeEotPath: "/assets/fontawesome-webfont.eot";
-@fontAwesomeEotPath_iefix: "/assets/fontawesome-webfont.eot?#iefix";
-@fontAwesomeWoffPath: "/assets/fontawesome-webfont.woff";
-@fontAwesomeTtfPath: "/assets/fontawesome-webfont.ttf";
-@fontAwesomeSvgPath: "/assets/fontawesome-webfont.svg#fontawesomeregular";
-@import "fontawesome";
-```
-
-If you would like to restore the default Glyphicons, inside the _bootstrap_and_overrides.css.less_ remove the FontAwesome declaration and uncomment the line:
-
-```less
-// Font Awesome
-// @fontAwesomeEotPath: asset-url("fontawesome-webfont.eot");
-// @fontAwesomeEotPath_iefix: asset-url("fontawesome-webfont.eot?#iefix");
-// @fontAwesomeWoffPath: asset-url("fontawesome-webfont.woff");
-// @fontAwesomeTtfPath: asset-url("fontawesome-webfont.ttf");
-// @fontAwesomeSvgPath: asset-url("fontawesome-webfont.svg#fontawesomeregular");
-// @import "fontawesome/font-awesome";
-
-// Glyphicons
-@import "twitter/bootstrap/sprites.less";
-```
 
 ## Using Javascripts
 
